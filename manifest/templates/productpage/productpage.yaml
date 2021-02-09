@@ -41,6 +41,12 @@ spec:
         volumeMounts:
         - name: tmp
           mountPath: /tmp
+      - name: productpage2
+        image: codingcorp-docker.pkg.coding.net/nocalhost/bookinfo/details
+        imagePullPolicy: IfNotPresent
+        command: ['ruby', 'details.rb', '19080']
+        ports:
+        - containerPort: 19080
       volumes:
       - name: tmp
         emptyDir: {}
